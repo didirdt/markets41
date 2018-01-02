@@ -3,6 +3,12 @@
     <%= devise_error_messages! %>
     <div class="row">
       <div class="form-group col-md-4">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, autofocus: true, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>

@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
