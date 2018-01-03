@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102045526) do
+ActiveRecord::Schema.define(version: 20180103044000) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -43,12 +43,55 @@ ActiveRecord::Schema.define(version: 20180102045526) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.string "number"
+    t.integer "user_id"
+    t.string "status"
+    t.decimal "total_price_items"
+    t.decimal "total_price_delivery"
+    t.decimal "total_all_price"
+    t.string "receiver_name"
+    t.string "receiver_phone_number"
+    t.string "receiver_mobile_number"
+    t.string "receiver_state"
+    t.string "receiver_city"
+    t.text "receiver_address"
+    t.string "receiver_postal_code"
+    t.string "destination_code"
+    t.string "service_delivery"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "number"
+    t.integer "user_id"
+    t.string "status"
+    t.decimal "total_price_items"
+    t.decimal "total_price_delivery"
+    t.decimal "total_all_price"
+    t.string "receiver_name"
+    t.string "receiver_phone_number"
+    t.string "receiver_mobile_number"
+    t.string "receiver_state"
+    t.string "receiver_city"
+    t.text "receiver_address"
+    t.string "receiver_postal_code"
+    t.string "destination_code"
+    t.string "service_delivery"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "upload"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -61,6 +104,28 @@ ActiveRecord::Schema.define(version: 20180102045526) do
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
+  create_table "shopping_cart_items", force: :cascade do |t|
+    t.integer "owner_id"
+    t.string "owner_type"
+    t.integer "quantity"
+    t.integer "item_id"
+    t.string "item_type"
+    t.string "price_currency"
+    t.decimal "price_cents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "order_id"
+    t.string "delivery_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_shopping_carts_on_order_id"
+    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

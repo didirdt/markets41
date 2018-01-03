@@ -11,5 +11,6 @@
   	$<%= @product.price %>
 </p>
 
+<%= image_tag @product.upload.url if @product.upload? %>
 <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %>
 <%= link_to "Back", products_path, class: "btn btn-default" %>

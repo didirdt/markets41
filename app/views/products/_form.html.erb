@@ -21,6 +21,12 @@
     <%= f.text_field :price, class: "form-control" %>
   </div>
   </div>
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :Upload_Image %>
+    <%= f.file_field :upload %>
+  </div>
+  </div>  
   <div class="actions">
     <%= f.submit 'Create', class: "btn btn-primary" %>
   </div>
