@@ -15,7 +15,7 @@
     <tbody>
       <% @products.each do |product| %>
         <tr>
-          <td class="col-md-1"><%= image_tag (product.upload.url), :style => "border: 1px solid red; height: 35px;" %> </td>
+          <td class="col-md-1"><%= image_tag (product.upload.url), :style => "border: 1px solid grey; height: 35px;" %> </td>
           <td class="col-md-1"><%= product.name %></td>
            <td class="col-md-1">$<%= product.price %></td>
            <td class="col-md-2"><%= product.user.try(:email) %></td>
