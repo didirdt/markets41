@@ -1,6 +1,10 @@
 class Product < ApplicationRecord
-  	resourcify
-	belongs_to :user
+  resourcify
+  belongs_to :user
 
-	mount_uploader :upload, UploadUploader
+  has_many :order_items
+  scope :active, -> { where(active: true) }
+  
+  mount_uploader :upload, UploadUploader
+
 end

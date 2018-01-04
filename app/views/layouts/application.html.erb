@@ -22,6 +22,9 @@
 		  <ul class="nav navbar-nav" style="font-size: 20px;">
 		    <li><%= link_to "List", products_path %></li>
 		    <li><%= link_to "New", new_product_path %></li>
+		    <% if user_signed_in? %>
+		    <li><h1 class="cart-text"><%= render 'layouts/cart_text' %></h1></li>
+		    <% end %>
 		  </ul>
 		    
 		  <ul class="nav navbar-nav navbar-right" style="font-size: 20px;">
