@@ -48,6 +48,7 @@ gem 'acts_as_shopping_cart', '~> 0.4.0'
 gem 'cancancan'
 gem 'rolify'
 gem 'carrierwave'
+gem 'stripe'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
